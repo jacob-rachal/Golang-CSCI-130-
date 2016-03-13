@@ -15,7 +15,7 @@ func main(){
 	})
 	http.ListenAndServe(":8080", nil)
 }
-/* While this is running, on the webpage you should see in the upper right corner "Path: /".
+/* While this is running, on the webpage you should see in the upper left corner "Path: /".
  The url address should say "localhost:8080/", and after the "/" you can type in anything you want
   (ex: "Hello_World"), hit enter or reload, and now the Path: should also show whatever phrase you added.
  */
