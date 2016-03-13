@@ -4,34 +4,18 @@
 // and will display the name in the url when the url is localhost:8080/name
 // - use req.URL.Path to do this
 package main//_2_display_name
-/*import(
+import(
 	"fmt"
 	"net/http"
 )
 func main(){
 	http.HandleFunc("/", func(res http.ResponseWriter, req *http.Request){
 		res.Header().Set("Content-Type", "text/plain")
-		fmt.Fprintf(res, req.URL.Path)
+		fmt.Fprintf(res, "Path: %v\n", req.URL.Path)
 	})
 	http.ListenAndServe(":8080", nil)
-}*/
-import (
-	"io"
-	"net/http"
-)
-
-type jojo int
-
-func (h jojo) ServeHTTP(res http.ResponseWriter, req *http.Request) {
-	res.Header().Set("Content-Type", "text/html; charset=utf-8")
-	io.WriteString(res, `<h1>`+req.URL.Path+`</h1><br>`)
 }
-
-func main() {
-	var badger jojo
-
-	mux := http.NewServeMux()
-	mux.Handle("/", badger)
-
-	http.ListenAndServe(":8080", mux)
-}
+/* While this is running, on the webpage you should see in the upper right corner "Path: /".
+ The url address should say "localhost:8080/", and after the "/" you can type in anything you want
+  (ex: "Hello_World"), hit enter or reload, and now the Path: should also show whatever phrase you added.
+ */
