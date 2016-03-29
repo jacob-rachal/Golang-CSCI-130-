@@ -1,7 +1,8 @@
 // Jacob Rachal 3-22-16
 // Fresno State CSCI 130
 // INSTR: create a web page which serves at localhost over https using TLS.
-//QUESTION: do I need to get a key and certificate and include them on my github?
+// NOTE: do this in the terminal: $ go run $(go env GOROOT)/src/crypto/tls/generate_cert.go --host=localhost
+// Preferibly in the same folder as this main.
 package main//_7_Assignment_TLS
 import (
 	"net/http"
