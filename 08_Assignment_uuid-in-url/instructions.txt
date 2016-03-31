@@ -1,0 +1,6 @@
+// Jacob Rachal 3-30-16 Wed.
+// Fresno State CSCI 130
+# Instructions
+1. Start with the code in this directory
+2. Refactor the code to store a uuid in a URL
+  i. use this uuid if there is no uuid from a cookie
