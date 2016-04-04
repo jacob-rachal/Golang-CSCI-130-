@@ -1,8 +1,6 @@
 // Jacob Rachal 3-30-16 Wed.
 // Fresno State CSCI 130
 package mem
-
-
 import (
 	"google.golang.org/appengine"
 	"google.golang.org/appengine/memcache"
@@ -10,7 +8,6 @@ import (
 	"net/http"
 	"encoding/json"
 )
-
 func storeMemc(m model, id string, req *http.Request) error {
 	ctx := appengine.NewContext(req)
 	bs, err := json.Marshal(m)
