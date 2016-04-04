@@ -7,9 +7,15 @@ import (
 	"html/template"
 	"log"
 	"net/http"
+	"google.golang.org/appengine"
+	"google.golang.org/appengine/log"
 )
 
 var tpl *template.Template
+//doesn't need a main func
+/*type model struct{ //from 049 main
+	Fname string
+}*/
 
 func init() {
 	tpl, _ = template.ParseGlob("templates/*.html")
@@ -24,17 +30,19 @@ func init() {
 }
 
 func index(res http.ResponseWriter, req *http.Request) {
-
+	//ctx := appengine.NewContext(req)//from 049
+	var id string
 	cookie, err := getCookie(res, req)
 	if err != nil {
 		// problem retrieving cookie
 		log.Println("ERROR index getCookie", err)
-		http.Error(res, err.Error(), http.StatusInternalServerError)
+		//http.Error(res, err.Error(), http.StatusInternalServerError) //comment out?
 		return
 	}
 
-	id := cookie.Value
-
+	id = cookie.Value
+	_, err = req.Cookie("session-id")
+	if err != nil{id = req.FormValue("User")}
 	if req.Method == "POST" {
 		src, _, err := req.FormFile("data")
 		if err != nil {
@@ -103,7 +111,8 @@ func login(res http.ResponseWriter, req *http.Request) {
 		}
 		http.SetCookie(res, cookie)
 
-		http.Redirect(res, req, "/", http.StatusSeeOther)
+		//http.Redirect(res, req, "/", http.StatusSeeOther)
+		http.Redirect(res, req, "/?User="+cookie.Value, http.StatusSeeOther)
 		return
 	}
 	tpl.ExecuteTemplate(res, "login.html", nil)
