@@ -40,12 +40,20 @@
     </style>
 </head>
 <body>
+{{if .LogStatus}}
 <h1> The Concordiant Template </h1>
 <h2>By Jacob Rachal</h2>
-<form method="POST">
-    Username: <input type="text" name="username"><br>
-    Password: <input type="text" name="password"><br>
-    <input type="submit">
-</form>
+<h3>Your Page</h3>
+<p>{{.Name}}</p><br>
+<p>{{.Age}}</p>
+
+<br>
+<a href="/logout">Log Out</a>
+
+<br>
+{{else}}
+<a href="/login">Please Login</a>
+{{end}}
+
 </body>
 </html>

@@ -50,23 +50,36 @@ func index(res http.ResponseWriter, req *http.Request) {
 	}
 	//m := Model(cookie)
 	fmt.Println("DEBUG: 52  ",u) //just for debugging
-	tpl.ExecuteTemplate(res, "temp7.html", u)
+	temperr := tpl.ExecuteTemplate(res, "temp7.html", u) //ExecuteTemplate returns an error.
+	if temperr != nil{
+		http.Error(res, temperr.Error(), http.StatusInternalServerError)
+	}
 }
 /* body of temp7 temporairly stored here for debugging.
 {{if .LogStatus}}
-    <h1> The Concordiant Template </h1>
-    <h2>By Jacob Rachal</h2>
-    <h3>Your Page</h3>
-        <p>{{.Name}}</p><br>
-        <p>{{.Age}}</p>
+<h1> The Concordiant Template </h1>
+<h2>By Jacob Rachal</h2>
+<h3>Your Page</h3>
+<p>{{.Name}}</p><br>
+<p>{{.Age}}</p>
 
-    <br>
-    <a href="/logout">Log Out</a>
-    {{end}}
-    <br>
-{{else}}
-    <a href="/login">Please Login</a>
+<br>
+<a href="/logout">Log Out</a>
 {{end}}
+<br>
+{{else}}
+<a href="/login">Please Login</a>
+{{end}}
+
+*/
+/*
+<h1> The Concordiant Template </h1>
+<h2>By Jacob Rachal</h2>
+<form method="POST">
+    Username: <input type="text" name="username"><br>
+    Password: <input type="text" name="password"><br>
+    <input type="submit">
+</form>
 */
 func login(res http.ResponseWriter, req *http.Request) {
 
