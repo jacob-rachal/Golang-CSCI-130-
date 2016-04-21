@@ -1,0 +1,2 @@
+Using the HTML page you built in the previous example, add an event listener to listen for a click on each list item. When a list item is clicked, have a alert "pop up" window display the inner HTML text content of the list item.
+Due 4-25-16.
