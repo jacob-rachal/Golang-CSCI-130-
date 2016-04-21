@@ -5,10 +5,16 @@
             <title>Title goes here</title>
         </head>
         <body>
-            <div id=""content></div>
+            <div id="content"></div>
+            <script type="text/javascript">
+                var unorderedlist = ["books", "LEGO", "water", "awesome"];
+                for(var i =0; i<unorderedlist.length; i++){
+                    var html ="<li>";
+                    html +=unorderedlist[i];
+                    html +="</li>";
+                    document.getElementById("content").innerHTML += html;
+                }
+
+            </script>
         </body>
-        <script type="text/javascript">
-            var unorderedlist = ["books", "LEGO", "water", "awesome"];
-            document.getElementById('content').innerHTML = unorderedlist;
-        </script>
     </html>
