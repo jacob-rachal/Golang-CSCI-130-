@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+    <html lang = "en">
+        <head>
+            <meta charset="UTF-8">
+            <title>Title goes here</title>
+        </head>
+        <body>
+            <div id="content"></div>
+            <script type="text/javascript">
+                var listPrinter = function(){
+                    var unorderedlist = [];
+                    unorderedlist["a"]="LEGOs";
+                    unorderedlist["b"]= "are";
+                    unorderedlist["c"]= "incredibly";
+                    unorderedlist["d"]= "awesome!";
+                    for ( var key in unorderedlist) {
+                        document.getElementById("content").innerHTML +=  ("<p id = \""+key+"\">" + unorderedlist[key] + "</p>");
+                    };
+                    for(  var key in unorderedlist){
+                        document.getElementById(key).addEventListener("click", function(){alert('List item chosen: '+this.innerHTML);});
+                    };
+
+
+                };
+                listPrinter();
+
+            </script>
+        </body>
+    </html>
