@@ -2,9 +2,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Background-Changer</title>
 </head>
 <body>
+    <div id = "container" style = "position:relative;">
+        <div id = "background" style = "position:absolute; z-index: -1;">
+        </div>
+            <br><p>Foreground text.</p>
+    </div>
+   <!-- </style> -->
+    <script type="text/javascript">
+        var background = [];
+        var randomQuotes = [];
+        var currIndex = 0;
+        window.setInterval(function(){
+            currIndex = (currIndex + 1) % 3;
+            var val = background[currIndex];
+            document.body.style.backgroundImage = "url(' "+val+" ')";
+            document.getElementById("background").innerHTML = randomQuotes[currIndex];
+        }, 4000);
+        console.log("Working! Yay!")
+    </script>
 
 </body>
 </html>
