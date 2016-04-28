@@ -7,19 +7,23 @@
 <body>
     <div id = "container" style = "position:relative;">
         <div id = "background" style = "position:absolute; z-index: -1;">
+            <p id="JS-quote"></p>
         </div>
             <br><!--<p>Foreground text.</p> -->
     </div>
    <!-- </style> -->
     <script type="text/javascript">
         var background = ["150611A-Sagan.jpg", "USS_Pittsburgh_(CA-72)_underway_after_she_lost_her_bow_in_June_1945.jpg", "back-to-the-future-delorean.jpg"];
-        var randomQuotes = ["______ This is the face of a man that shot an hyper-dimensional enity from outside time and space that was intersecting our reality via thousands of iterations, in the face, with a science gun.", "____________ U.S.N. Damage Control back in WW2 truly was OP in every sense of the phrase.", "           * Huey Lewis & The News INTENSIFIES *"];
+        var randomQuotes = [" This is the face of a man that shot an hyper-dimensional enity from outside time and space that was intersecting our reality via thousands of iterations, in the face, with a science gun.", " U.S.N. Damage Control back in WW2 truly was OP in every sense of the phrase.", "           * Huey Lewis & The News INTENSIFIES *"];
         var currIndex = 0;
         window.setInterval(function(){
             currIndex = (currIndex + 1) % 3;
             var val = background[currIndex];
             document.body.style.backgroundImage = "url(' "+val+" ')";
-            document.getElementById("background").innerHTML = randomQuotes[currIndex];
+            <!--document.getElementById("background").innerHTML = randomQuotes[currIndex];-->
+            cc = document.querySelector("#JS-quote");
+            cc.innerHTML = randomQuotes[currIndex];
+            cc.setAttribute("style", "color:white;")
         }, 4000);
         console.log("Working! Yay!")
     </script>
