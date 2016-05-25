@@ -1,4 +1,5 @@
 // Jacob Rachal 5/22/16 CSCI 130
+// IMPORTANT! Missing the index html and the files
 package main//_4_Assignment_AJAX
 import(
 	"net/http"
@@ -14,7 +15,7 @@ func index(res http.ResponseWriter, req *http.Request){
 }
 func ajax(res http.ResponseWriter, req *http.Request){
 	res.Header().Set("Content-Type","text/plain")
-	fmt.Fprintf(res,`<div class="readable" onclick="killMe('`+strconv.Itoa(uniqueID)+`')" id="`+ strconv.Itoa(uniqueID) +`">` + req.FormValue("key") + `</div>`)
+	fmt.Fprintf(res,`<div class="readable" onclick="ripAndtear('`+strconv.Itoa(uniqueID)+`')" id="`+ strconv.Itoa(uniqueID) +`">` + req.FormValue("key") + `</div>`)
 	uniqueID++
 }
 func init(){
