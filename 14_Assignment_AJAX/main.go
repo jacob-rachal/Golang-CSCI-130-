@@ -1,5 +1,9 @@
 // Jacob Rachal 5/22/16 CSCI 130
-// IMPORTANT! Missing the index html and the files
+// Create an application which demonstrates AJAX.
+// One possible idea: an "is the name already taken" app. Users can enter words in a form field.
+// The words will be stored in either memcache or the datastore. If the word is already stored,
+// a message will display on the webpage letting them know that word is already stored.
+// Here is some starting code for you. (example code is missing?)
 package main//_4_Assignment_AJAX
 import(
 	"net/http"
