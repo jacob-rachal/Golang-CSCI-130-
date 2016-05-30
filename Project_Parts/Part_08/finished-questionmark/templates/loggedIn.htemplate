@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Project Step 8</title>
+    <style>
+        html {
+            font-size: 20px;
+        }
+
+        body {
+            max-width: 700px;
+            padding: 30px;
+            border: 16px groove orangered;
+            margin: 0 auto;
+        }
+
+        h1, p, pre {
+            padding: 0;
+            border: 0;
+            margin: 0;
+        }
+
+        h1 {
+            margin: 30px 0 0 0;
+        }
+
+        p {
+            margin: 16px 0 0 0;
+        }
+
+        pre {
+            background-color: rgba(211, 211, 211, 0.45);
+            border: 1px solid black;
+        }
+
+        .discord {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+<h1> Jacob & CO's Extra Light Template Crackers </h1>
+<h3>By Jacob Rachal</h3>
+{{if  .Uuid}} Your UUID: {{.Uuid}}{{else}}{{end}}<br>
+{{if  .Name}} Your Name: {{.Name}}{{else}}{{end}}<br>
+{{if  .Age }} Your Age : {{.Age }}{{else}}{{end}}<br>
+<form method = "POST"  enctype="multipart/form-data">
+    Input Name: <input type="text" name="name"><br>
+    Input Age : <input type="text" name="age" ><br>
+    <input type="submit">
+    <br>
+</form>
+<form method = "POST" action = "/logout">
+    <input type="submit" value = "Log Out">
+</form>
+</body>
+</html>
